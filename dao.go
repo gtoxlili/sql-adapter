@@ -116,7 +116,7 @@ func (d dao) querySQL(ctx context.Context, query string, args ...interface{}) ([
 	for rows.Next() {
 		var rule rule
 
-		err = rows.Scan(&rule.PType, &rule.V0, &rule.V1, &rule.V2, &rule.V3, &rule.V4, &rule.V5)
+		err = rows.Scan(&rule.PType, &rule.V0, &rule.V1, &rule.V2, &rule.V3, &rule.V4, &rule.V5, &rule.V6, &rule.V7, &rule.V8, &rule.V9, &rule.V10, &rule.V11)
 		if err != nil {
 			return nil, err
 		}
