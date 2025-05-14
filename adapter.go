@@ -39,10 +39,7 @@ var (
 
 // the supported driver names.
 var supportedDriverNames = map[adapterDriverNameIndex][]string{
-	_SQLite:     {"sqlite", "sqlite3", "nrsqlite3"},
-	_MySQL:      {"mysql", "nrmysql"},
-	_PostgreSQL: {"postgres", "pgx", "pq-timeouts", "cloudsql-postgres", "ql", "nrpostgres", "cockroach"},
-	_SQLServer:  {"sqlserver", "azuresql"},
+	_SQLite: {"sqlite", "sqlite3", "nrsqlite3"},
 }
 
 // NewAdapter  the constructor for Adapter.
@@ -101,14 +98,7 @@ func getAdapterDriverNameIndex(driverName string) (adapterDriverNameIndex, error
 		}
 	}
 
-	switch driverName {
-	case "mssql":
-		return 0, errors.New("driver name mssql not support, please use sqlserver")
-	case "oci8", "ora", "goracle":
-		return 0, errors.New("sqladapter: please checkout 'oracle' branch")
-	default:
-		return 0, fmt.Errorf("unsupported driver name: %s", driverName)
-	}
+	return 0, fmt.Errorf("unsupported driver name: %s", driverName)
 }
 
 // Adapter  defines the database adapter for Casbin.

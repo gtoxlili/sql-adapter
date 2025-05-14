@@ -47,20 +47,8 @@ func newDao(db *sql.DB, driverNameIndex adapterDriverNameIndex, tableName string
 	switch driverNameIndex {
 	case _SQLite:
 		d.sqlCreateTable = fmt.Sprintf(sqlCreateTableSQLite3, tableName)
-	case _MySQL:
-		d.sqlCreateTable = fmt.Sprintf(sqlCreateTableMySQL, tableName)
-	case _PostgreSQL:
-		d.placeHolder = sqlPlaceholderPostgreSQL
-		d.sqlCreateTable = fmt.Sprintf(sqlCreateTablePostgreSQL, tableName)
-		d.sqlInsertRow = fmt.Sprintf(sqlInsertRowPostgreSQL, tableName)
-		d.sqlUpdateRow = fmt.Sprintf(sqlUpdateRowPostgreSQL, tableName)
-		d.sqlDeleteRow = fmt.Sprintf(sqlDeleteRowPostgreSQL, tableName)
-	case _SQLServer:
-		d.placeHolder = sqlPlaceholderSQLServer
-		d.sqlCreateTable = fmt.Sprintf(sqlCreateTableSQLServer, tableName)
-		d.sqlInsertRow = fmt.Sprintf(sqlInsertRowSQLServer, tableName)
-		d.sqlUpdateRow = fmt.Sprintf(sqlUpdateRowSQLServer, tableName)
-		d.sqlDeleteRow = fmt.Sprintf(sqlDeleteRowSQLServer, tableName)
+	default:
+		panic(fmt.Sprintf("unsupported driver name index: %d", driverNameIndex))
 	}
 
 	return d

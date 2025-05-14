@@ -24,10 +24,16 @@ type rule struct {
 	V3    string
 	V4    string
 	V5    string
+	V6    string
+	V7    string
+	V8    string
+	V9    string
+	V10   string
+	V11   string
 }
 
 func (rule rule) Data() []string {
-	s := []string{rule.PType, rule.V0, rule.V1, rule.V2, rule.V3, rule.V4, rule.V5}
+	s := []string{rule.PType, rule.V0, rule.V1, rule.V2, rule.V3, rule.V4, rule.V5, rule.V6, rule.V7, rule.V8, rule.V9, rule.V10, rule.V11}
 	data := make([]string, 0, maxParameterCount)
 
 	for _, val := range s {
@@ -50,6 +56,12 @@ type Filter struct {
 	V3    []string
 	V4    []string
 	V5    []string
+	V6    []string
+	V7    []string
+	V8    []string
+	V9    []string
+	V10   []string
+	V11   []string
 }
 
 type filterData struct {
@@ -66,5 +78,11 @@ func (filter Filter) genData() [maxParameterCount]filterData {
 		{"v3", filter.V3},
 		{"v4", filter.V4},
 		{"v5", filter.V5},
+		{"v6", filter.V6},
+		{"v7", filter.V7},
+		{"v8", filter.V8},
+		{"v9", filter.V9},
+		{"v10", filter.V10},
+		{"v11", filter.V11},
 	}
 }
