@@ -61,6 +61,7 @@ CREATE INDEX idx_%[1]s ON %[1]s (p_type,v0,v1);`
 )
 
 // for SQLite3.
+// for SQLite3.
 const (
 	sqlCreateTableSQLite3 = `
 CREATE TABLE IF NOT EXISTS %[1]s(
@@ -77,33 +78,20 @@ CREATE TABLE IF NOT EXISTS %[1]s(
     v9     VARCHAR(255) DEFAULT '' NOT NULL,
     v10    VARCHAR(255) DEFAULT '' NOT NULL,
     v11    VARCHAR(255) DEFAULT '' NOT NULL,
-    CHECK (TYPEOF("p_type") = "text" AND
-           LENGTH("p_type") <= 32),
-    CHECK (TYPEOF("v0") = "text" AND
-           LENGTH("v0") <= 255),
-    CHECK (TYPEOF("v1") = "text" AND
-           LENGTH("v1") <= 255),
-    CHECK (TYPEOF("v2") = "text" AND
-           LENGTH("v2") <= 255),
-    CHECK (TYPEOF("v3") = "text" AND
-           LENGTH("v3") <= 255),
-    CHECK (TYPEOF("v4") = "text" AND
-           LENGTH("v4") <= 255),
-    CHECK (TYPEOF("v5") = "text" AND
-           LENGTH("v5") <= 255)
-    CHECK (TYPEOF("v6") = "text" AND
-    	   LENGTH("v6") <= 255),
-    CHECK (TYPEOF("v7") = "text" AND
-    	   LENGTH("v7") <= 255),
-    CHECK (TYPEOF("v8") = "text" AND
-    	   LENGTH("v8") <= 255),
-    CHECK (TYPEOF("v9") = "text" AND
-    	   LENGTH("v9") <= 255),
-    CHECK (TYPEOF("v10") = "text" AND
-    	   LENGTH("v10") <= 255),
-    CHECK (TYPEOF("v11") = "text" AND
-    	   LENGTH("v11") <= 255)
+    CHECK (TYPEOF("p_type") = "text" AND LENGTH("p_type") <= 32),
+    CHECK (TYPEOF("v0") = "text" AND LENGTH("v0") <= 255),
+    CHECK (TYPEOF("v1") = "text" AND LENGTH("v1") <= 255),
+    CHECK (TYPEOF("v2") = "text" AND LENGTH("v2") <= 255),
+    CHECK (TYPEOF("v3") = "text" AND LENGTH("v3") <= 255),
+    CHECK (TYPEOF("v4") = "text" AND LENGTH("v4") <= 255),
+    CHECK (TYPEOF("v5") = "text" AND LENGTH("v5") <= 255),
+    CHECK (TYPEOF("v6") = "text" AND LENGTH("v6") <= 255),
+    CHECK (TYPEOF("v7") = "text" AND LENGTH("v7") <= 255),
+    CHECK (TYPEOF("v8") = "text" AND LENGTH("v8") <= 255),
+    CHECK (TYPEOF("v9") = "text" AND LENGTH("v9") <= 255),
+    CHECK (TYPEOF("v10") = "text" AND LENGTH("v10") <= 255),
+    CHECK (TYPEOF("v11") = "text" AND LENGTH("v11") <= 255)
 );
-CREATE INDEX IF NOT EXISTS idx_%[1]s ON %[1]s (p_type,v0,v1);`
+CREATE UNIQUE INDEX IF NOT EXISTS idx_all_%[1]s ON %[1]s (p_type,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11);`
 	sqlTruncateTableSQLite3 = "DROP TABLE IF EXISTS %[1]s;" + sqlCreateTableSQLite3
 )
