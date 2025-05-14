@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	sqladapter "github.com/Blank-Xu/sql-adapter"
 	"github.com/casbin/casbin/v2"
 	_ "github.com/go-sql-driver/mysql"
+	sqladapter "github.com/gtoxlili/sql-adapter"
 	"github.com/jmoiron/sqlx"
 )
 

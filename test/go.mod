@@ -1,11 +1,11 @@
-module github.com/Blank-Xu/sql-adapter-test
+module github.com/gtoxlili/sql-adapter-test
 
 go 1.23.0
 
-replace github.com/Blank-Xu/sql-adapter => ../.
+replace github.com/gtoxlili/sql-adapter => ../.
 
 require (
-	github.com/Blank-Xu/sql-adapter v0.0.0-00010101000000-000000000000
+	github.com/gtoxlili/sql-adapter v0.0.0-00010101000000-000000000000
 	github.com/casbin/casbin/v2 v2.105.0
 	github.com/go-sql-driver/mysql v1.9.2
 	github.com/lib/pq v1.10.9

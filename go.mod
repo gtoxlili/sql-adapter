@@ -1,4 +1,4 @@
-module github.com/Blank-Xu/sql-adapter
+module github.com/gtoxlili/sql-adapter
 
 go 1.13
 
